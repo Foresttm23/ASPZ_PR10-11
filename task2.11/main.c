@@ -9,13 +9,15 @@ int main() {
 
     pid1 = fork();
     if (pid1 == 0) {
-        printf("Child1 %d;\n", getpid());
+        printf("Child1 %d; 3s...\n", getpid());
+        sleep(3);
         exit(11); 
     }
 
     pid2 = fork();
     if (pid2 == 0) {
-        printf("Child2 %d;\n", getpid());
+        printf("Child2 %d; 3s...\n", getpid());
+        sleep(3);
         exit(22);
     }
 
@@ -34,7 +36,8 @@ int main() {
     // WNOHANG
     pid_t pid3 = fork();
     if (pid3 == 0) {
-        printf("Child3 %d;\n", getpid());
+        printf("Child3 %d; 3s...\n", getpid());
+        sleep(3);
         exit(33);
     }
 
