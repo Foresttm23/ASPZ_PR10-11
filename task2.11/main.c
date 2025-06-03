@@ -46,12 +46,14 @@ int main() {
     int nohang_status;
     pid_t result = waitpid(pid3, &nohang_status, WNOHANG);
     if (result == 0) {
-        printf("Child %d is running WNOHANG\n", pid3);
+        printf("Child3 %d is running WNOHANG\n", pid3);
     } else if (result > 0 && WIFEXITED(nohang_status)) {
-        printf("Child %d; code %d WNOHANG\n", pid3, WEXITSTATUS(nohang_status));
+        printf("Child3 %d; code %d WNOHANG\n", pid3, WEXITSTATUS(nohang_status));
     }
 
     waitpid(pid3, &nohang_status, 0);
+    printf("Child3 Finished\n");
+
 
     return 0;
 }
