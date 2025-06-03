@@ -9,22 +9,20 @@ int main() {
 
     pid1 = fork();
     if (pid1 == 0) {
-        printf("Child1 %d; 2s...\n", getpid());
-        sleep(2);
+        printf("Child1 %d;\n", getpid());
         exit(11); 
     }
 
     pid2 = fork();
     if (pid2 == 0) {
-        printf("Child2 %d; 4s...\n", getpid());
-        sleep(4);
+        printf("Child2 %d;\n", getpid());
         exit(22);
     }
 
     // wait(NULL)
     pid_t wpid = wait(&status);
     if (WIFEXITED(status)) {
-        printf("Parent: %d ; code: %d (wait)\n", wpid, WEXITSTATUS(status));
+        printf("Parent: %d ; code: %d\n", wpid, WEXITSTATUS(status));
     }
 
     // PID
@@ -36,8 +34,7 @@ int main() {
     // WNOHANG
     pid_t pid3 = fork();
     if (pid3 == 0) {
-        printf("Child3 %d; 3s...\n", getpid());
-        sleep(3);
+        printf("Child3 %d;\n", getpid());
         exit(33);
     }
 
